@@ -28,7 +28,7 @@ const Home = () => {
 
     fetchBooks();
 
-    // Get role from localStorage
+    
     const role = localStorage.getItem("role");
     setIsAdmin(role === "admin");
   }, []);
@@ -37,7 +37,7 @@ const Home = () => {
     setSearch(e.target.value);
   };
 
-  // Filter books based on search input
+ 
   const filteredBooks = books.filter((book) =>
     book.title?.toLowerCase().includes(search.toLowerCase()) ||
     book.author?.toLowerCase().includes(search.toLowerCase())
@@ -45,12 +45,12 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* Hero section */}
+      
       <div className="hero">
         <h1>Discover Your Next Favorite Book</h1>
         <p>Explore a wide range of books and dive into knowledge.</p>
 
-        {/* Search input with clear button */}
+        
         <div className="search-container">
           <input
             type="text"
@@ -70,14 +70,14 @@ const Home = () => {
           )}
         </div>
 
-        {/* Search status */}
+        
         {search && !loading && (
           <p className="search-status">
             Found {filteredBooks.length} {filteredBooks.length === 1 ? 'book' : 'books'} matching "{search}"
           </p>
         )}
 
-        {/* Admin-only button */}
+        
         {isAdmin && (
           <Link to="/admin/add-book" className="add-book-btn">
             + Add New Book
@@ -85,7 +85,7 @@ const Home = () => {
         )}
       </div>
 
-      {/* Book list section */}
+      
       <div className="book-list">
         {loading ? (
           <p className="loading">Loading books...</p>

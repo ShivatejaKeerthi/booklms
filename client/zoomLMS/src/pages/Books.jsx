@@ -7,7 +7,8 @@ const Books = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("title"); // Default sort by title
+  const [sortBy, setSortBy] = useState("title"); 
+  const [expandedBookId, setExpandedBookId] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -51,6 +52,11 @@ const Books = () => {
     setSortBy(e.target.value);
   };
 
+  // Toggle book details view
+  const toggleBookDetails = (bookId) => {
+    setExpandedBookId(expandedBookId === bookId ? null : bookId);
+  };
+
   if (loading) {
     return <div className="books-loading">Loading books...</div>;
   }
@@ -61,7 +67,7 @@ const Books = () => {
 
   return (
     <div className="books-container">
-      <h2 className="books-title">My Book Collection</h2>
+      <h2 className="books-title">Featured Book Collection</h2>
       
       <div className="books-controls">
         <div className="search-box">
@@ -106,7 +112,47 @@ const Books = () => {
               <div className="book-details">
                 <h3 className="book-title">{book.title}</h3>
                 <p className="book-author">by {book.author}</p>
-                {book.genre && <p className="book-genre">{book.genre}</p>}
+                
+                {expandedBookId === book._id ? (
+                  <div className="book-expanded-content">
+                    <p className="book-description">{book.description || "No description available."}</p>
+                    <div className="book-metadata">
+                      {book.publishedYear && (
+                        <p className="book-year">
+                          <span className="metadata-label">Published:</span> {book.publishedYear}
+                        </p>
+                      )}
+                      {book.pages && (
+                        <p className="book-pages">
+                          <span className="metadata-label">Pages:</span> {book.pages}
+                        </p>
+                      )}
+                      {book.isbn && (
+                        <p className="book-isbn">
+                          <span className="metadata-label">ISBN:</span> {book.isbn}
+                        </p>
+                      )}
+                    </div>
+                    <button 
+                      className="view-details-btn active"
+                      onClick={() => toggleBookDetails(book._id)}
+                    >
+                      Hide Details
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    {book.genre && <p className="book-genre">{book.genre}</p>}
+                    <div className="view-details-wrapper">
+                      <button 
+                        className="view-details-btn"
+                        onClick={() => toggleBookDetails(book._id)}
+                      >
+                        View Details
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           ))}

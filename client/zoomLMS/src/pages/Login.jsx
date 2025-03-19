@@ -1,6 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 import "../styles/Login.css";
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const { login } = useUser();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,29 +18,19 @@ const Login = () => {
     setLoading(true);
     
     try {
-      const { data } = await axios.post("https://booklms.onrender.com/api/users/login", { 
-        email, 
-        password 
-      });
+      // Use the login function from UserContext
+      const result = await login(email, password);
       
-      localStorage.setItem("token", data.token);
-      
-      // If user data is available, store it as well
-      if (data.user) {
-        localStorage.setItem("user", JSON.stringify(data.user));
+      if (result.success) {
+        setLoading(false);
+        // Redirect to books page after successful login
+        navigate("/books");
+      } else {
+        throw new Error(result.message);
       }
-      
-      setLoading(false);
-      
-      // Redirect to books page after successful login
-      navigate("/books");
     } catch (error) {
       setLoading(false);
-      if (error.response && error.response.data && error.response.data.message) {
-        setError(error.response.data.message);
-      } else {
-        setError("Invalid credentials. Please try again.");
-      }
+      setError(error.message || "Invalid credentials. Please try again.");
     }
   };
 
