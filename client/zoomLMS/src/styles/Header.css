@@ -1,0 +1,309 @@
+/* Import beautiful fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --main-font: 'Poppins', sans-serif;
+  --heading-font: 'Montserrat', sans-serif;
+  --primary-color: #0077cc;
+  --primary-dark: #005fa3;
+  --accent-color: #ffdd57;
+  --button-color: #ff4747;
+  --button-hover: #ff2929;
+}
+
+body {
+  font-family: var(--main-font);
+}
+
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  padding: 18px 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  border-radius: 0 0 15px 15px;
+  transition: all 0.4s ease-in-out;
+  font-family: var(--heading-font);
+}
+
+.header:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* Stunning new logo styling */
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  padding: 5px 10px;
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.logo:hover::before {
+  left: 100%;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease;
+}
+
+.logo:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.logo:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo icon styles */
+.logo-icon {
+  margin-right: 10px;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  position: relative;
+  transform: translateZ(0);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(360deg);
+  transition: transform 0.6s ease;
+}
+
+.logo-text {
+  position: relative;
+  z-index: 1;
+}
+
+.nav {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  position: relative;
+  transition: all 0.3s;
+  font-family: var(--main-font);
+  letter-spacing: 0.3px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.dark-mode-toggle:hover {
+  transform: rotate(30deg);
+  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.login-btn, .logout-btn {
+  background: linear-gradient(135deg, var(--button-color), var(--button-hover));
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(255, 71, 71, 0.2);
+  letter-spacing: 0.8px;
+  font-family: var(--main-font);
+  text-transform: uppercase;
+}
+
+.login-btn:hover, .logout-btn:hover {
+  background: linear-gradient(135deg, var(--button-hover), var(--button-color));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(255, 71, 71, 0.3);
+}
+
+.login-btn:active, .logout-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.header {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.logo {
+  animation: pulse 2s infinite;
+}
+
+.nav-link {
+  animation: fadeIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.nav-link:nth-child(1) { animation-delay: 0.1s; }
+.nav-link:nth-child(2) { animation-delay: 0.2s; }
+.nav-link:nth-child(3) { animation-delay: 0.3s; }
+.nav-link:nth-child(4) { animation-delay: 0.4s; }
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+  transition: all 0.4s ease;
+}
+
+.dark-mode .header {
+  background: linear-gradient(135deg, #333, #222);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .logo {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .logo-icon {
+  background: var(--accent-color);
+}
+
+.dark-mode .nav-link {
+  color: #f0f0f0;
+}
+
+.dark-mode .nav-link::after {
+  background-color: var(--accent-color);
+}
+
+.dark-mode .nav-link:hover {
+  color: #ffffff;
+}
+
+.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .login-btn, .dark-mode .logout-btn {
+  background: linear-gradient(135deg, var(--button-color), #d63e3e);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 0;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  .logo-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .nav {
+    gap: 15px;
+  }
+}
+
+/* Smooth page scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
