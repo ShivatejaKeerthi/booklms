@@ -7,6 +7,7 @@ import AddBookForm from "./pages/AddBookForm";
 import Header from "./components/Header";
 import { UserProvider } from "./context/UserContext";
 import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             } 
           />
         </Routes>
+        <Footer/>
       </Router>
     </UserProvider>
   );

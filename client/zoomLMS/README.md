@@ -1,12 +1,50 @@
-# React + Vite
+📚 BookLMS – Library Management System
+BookLMS is a modern, web-based Library Management System that allows users to browse books while administrators can manage the collection. The system features user authentication, a dark mode, and secure admin controls.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tech Stack:
+🟢 Frontend: React, React Router, Context API
+🔵 Backend: Node.js, Express, MongoDB
+🔐 Authentication: JWT (JSON Web Token)
 
-Currently, two official plugins are available:
+🚀 Features
+✔️ User Authentication – Secure login and registration system
+✔️ Browse Books – View all available books
+✔️ Admin Controls – Add and manage books
+✔️ Dark Mode – Toggle between light and dark themes
+✔️ Protected Routes – Restrict access to admin functionalities
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📥 Installation & Setup
+1️⃣ Clone the Repository
+sh
+Copy
+Edit
+git clone https://github.com/yourusername/BookLMS.git
+cd BookLMS
+2️⃣ Install Dependencies
+sh
+Copy
+Edit
+npm install
+3️⃣ Start the Development Server
+sh
+Copy
+Edit
+npm run dev
+Ensure the backend is running in a separate terminal for full functionality.
 
-## Expanding the ESLint configuration
+🔗 API Endpoints
+Authentication
+🔹 POST /api/auth/register – Register a new user
+🔹 POST /api/auth/login – Authenticate and receive a token
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Books
+📖 GET /api/books – Fetch all books
+📖 POST /api/books – Add a new book (Admin only)
+
+🔮 Future Enhancements
+✨ Book Borrowing System – Allow users to borrow and return books
+✨ User Dashboard – Track borrowed books and history
+✨ Enhanced UI – Improve design with animations and modern styling
+
+👨‍💻 Contributing
+I welcome contributions! Feel free to fork this repository and submit a pull request with improvements or new features.

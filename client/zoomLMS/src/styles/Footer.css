@@ -1,0 +1,332 @@
+.footer {
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    padding: 50px 0 30px;
+    text-align: center;
+    font-family: 'Poppins', Arial, sans-serif;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #ff6b6b, #ffcc00, #4ecdc4);
+    z-index: 1;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    margin: 20px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+.footer-section h3, .footer-section h4 {
+    margin-bottom: 15px;
+    color: #ffcc00;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h3::after, .footer-section h4::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: #ffcc00;
+    bottom: -5px;
+    left: 25%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.footer-section:hover h3::after, .footer-section:hover h4::after {
+    transform: scaleX(1);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+    transition: transform 0.2s ease;
+}
+
+.footer-section ul li:hover {
+    transform: translateX(5px);
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.footer-section ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffcc00;
+    transition: width 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffcc00;
+}
+
+.footer-section ul li a:hover::before {
+    width: 100%;
+}
+
+/* Logo styling */
+.logo-icon {
+    font-size: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.logo-text {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.footer-tagline {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Social Icons - SVG styling */
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.social-icons a svg {
+    margin-right: 8px;
+}
+
+.social-icons a span {
+    font-size: 14px;
+}
+
+/* Brand-specific styling */
+.social-icons a.twitter {
+    background-color: rgba(29, 161, 242, 0.8);
+}
+
+.social-icons a.facebook {
+    background-color: rgba(59, 89, 152, 0.8);
+}
+
+.social-icons a.instagram {
+    background: linear-gradient(45deg, rgba(64, 93, 230, 0.8), rgba(225, 48, 108, 0.8), rgba(245, 96, 64, 0.8));
+}
+
+.social-icons a.linkedin {
+    background-color: rgba(0, 119, 181, 0.8);
+}
+
+.social-icons a.github {
+    background-color: rgba(36, 41, 46, 0.8);
+}
+
+/* Brand-specific hover effects */
+.social-icons a.twitter:hover {
+    background-color: rgba(29, 161, 242, 1);
+    box-shadow: 0 5px 15px rgba(29, 161, 242, 0.3);
+}
+
+.social-icons a.facebook:hover {
+    background-color: rgba(59, 89, 152, 1);
+    box-shadow: 0 5px 15px rgba(59, 89, 152, 0.3);
+}
+
+.social-icons a.instagram:hover {
+    background: linear-gradient(45deg, rgb(64, 93, 230), rgb(225, 48, 108), rgb(245, 96, 64));
+    box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3);
+}
+
+.social-icons a.linkedin:hover {
+    background-color: rgba(0, 119, 181, 1);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+}
+
+.social-icons a.github:hover {
+    background-color: rgba(36, 41, 46, 1);
+    box-shadow: 0 5px 15px rgba(36, 41, 46, 0.3);
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+}
+
+/* Newsletter section */
+.newsletter {
+    max-width: 550px;
+    margin: 30px auto 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.newsletter h4 {
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: inherit;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffcc00;
+    color: #0f0c29;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #ffd700;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+}
+
+/* Footer bottom */
+.footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.footer-terms {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-terms a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-terms a:hover {
+    color: #ffcc00;
+}
+
+.footer-divider {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-section {
+        flex: 1 1 100%;
+        margin: 15px 0;
+    }
+    
+    .footer {
+        padding: 30px 0 20px;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .social-icons {
+        flex-direction: column;
+    }
+    
+    .social-icons a {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-terms {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-divider {
+        display: none;
+    }
+}
