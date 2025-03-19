@@ -9,6 +9,7 @@ const Home = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [expandedBookId, setExpandedBookId] = useState(null);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -37,6 +38,9 @@ const Home = () => {
     setSearch(e.target.value);
   };
 
+  const toggleBookDetails = (bookId) => {
+    setExpandedBookId(expandedBookId === bookId ? null : bookId);
+  };
  
   const filteredBooks = books.filter((book) =>
     book.title?.toLowerCase().includes(search.toLowerCase()) ||
@@ -98,11 +102,29 @@ const Home = () => {
               <p><strong>Author:</strong> {book.author}</p>
               <p><strong>Genre:</strong> {book.genre}</p>
               <p><strong>Year:</strong> {book.publicationYear}</p>
-              <div className="view-details-wrapper">
-                <Link to={`/book/${book._id}`} className="view-details">
-                  View Details
-                </Link>
-              </div>
+              
+              {expandedBookId === book._id ? (
+                <div className="book-expanded-content">
+                  <p className="book-description">{book.description || "No description available."}</p>
+                  <div className="view-details-wrapper">
+                    <button 
+                      className="view-details-btn active"
+                      onClick={() => toggleBookDetails(book._id)}
+                    >
+                      Hide Details
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="view-details-wrapper">
+                  <button 
+                    className="view-details"
+                    onClick={() => toggleBookDetails(book._id)}
+                  >
+                    View Details
+                  </button>
+                </div>
+              )}
             </div>
           ))
         ) : (

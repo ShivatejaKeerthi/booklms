@@ -462,3 +462,69 @@ html {
 .error {
   color: #d9534f;
 }
+
+.view-details {
+  display: inline-block;
+  padding: 10px 18px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  box-shadow: 0 3px 8px rgba(0, 119, 204, 0.2);
+  align-self: center;
+  margin: 0 auto;
+  border: none;
+  cursor: pointer;
+}
+
+.view-details-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.view-details-btn {
+  padding: 10px 18px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 3px 8px rgba(0, 119, 204, 0.2);
+}
+
+.view-details-btn:hover, .view-details:hover {
+  background: linear-gradient(to right, var(--primary-dark), var(--primary-color));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 119, 204, 0.3);
+}
+
+.view-details-btn.active {
+  background: linear-gradient(to right, #ff6b6b, var(--button-color));
+}
+
+.book-expanded-content {
+  margin-top: 15px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.book-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  padding: 0 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} 
