@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("userInfo"); // ✅ Fix: Use the correct key
+    const storedUser = localStorage.getItem("userInfo"); // 
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }

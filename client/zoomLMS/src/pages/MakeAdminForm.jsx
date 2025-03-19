@@ -15,7 +15,7 @@ const MakeAdminForm = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/users/make-admin", {
+            const response = await fetch("https://booklms.onrender.com/api/users/make-admin", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

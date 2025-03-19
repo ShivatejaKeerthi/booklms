@@ -14,7 +14,7 @@ const Home = () => {
     const fetchBooks = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get("http://localhost:5000/api/books");
+        const { data } = await axios.get("https://booklms.onrender.com/api/books");
         console.log("Fetched Books:", data);
         setBooks(data);
         setError(null);
