@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 import { useUser } from "../context/UserContext"; 
 import "../styles/Header.css";
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logout } = useUser();
   const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ const Header = () => {
     // Use the logout function from context instead of direct localStorage manipulation
     logout();
     navigate("/login");
+    setIsMenuOpen(false);
   };
 
   const toggleDarkMode = () => {
@@ -29,20 +31,32 @@ const Header = () => {
     document.body.classList.toggle("dark-mode", newDarkMode);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="header">
       <div className="container">
-        <Link to="/" className="logo">📒BookLMS</Link>
+        <Link to="/" className="logo" onClick={closeMenu}>📒BookLMS</Link>
         
-        <nav className="nav">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/books" className="nav-link">Books</Link>
+        <div className="hamburger-menu" onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </div>
+        
+        <nav className={`nav ${isMenuOpen ? 'nav-active' : ''}`}>
+          <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
+          <Link to="/books" className="nav-link" onClick={closeMenu}>Books</Link>
           {user?.role === "admin" && (
-            <Link to="/admin/add-book" className="nav-link">Add Book</Link>
+            <Link to="/admin/add-book" className="nav-link" onClick={closeMenu}>Add Book</Link>
           )}
         </nav>
         
-        <div className="right">
+        <div className={`right ${isMenuOpen ? 'right-active' : ''}`}>
           <button 
             onClick={toggleDarkMode} 
             className="dark-mode-toggle"
@@ -54,7 +68,7 @@ const Header = () => {
           {user ? (
             <button onClick={handleLogout} className="logout-btn">Logout</button>
           ) : (
-            <Link to="/login" className="login-btn">Login</Link>
+            <Link to="/login" className="login-btn" onClick={closeMenu}>Login</Link>
           )}
         </div>
       </div>
@@ -62,4 +76,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header; 
