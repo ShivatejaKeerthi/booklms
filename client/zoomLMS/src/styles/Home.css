@@ -197,7 +197,7 @@ body {
   z-index: -1;
 }
 
-/* Enhanced Book Cards */
+
 .book-card {
   background: var(--card-bg);
   padding: 25px;
@@ -273,7 +273,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Enhanced View Details Button */
+
 .view-details {
   display: inline-block;
   padding: 10px 18px;
@@ -285,8 +285,16 @@ body {
   font-weight: 500;
   transition: all var(--transition-fast);
   box-shadow: 0 3px 8px rgba(0, 119, 204, 0.2);
-  align-self: flex-start;
-}
+  align-self: center;
+  margin: 0 auto;
+} 
+
+.view-details-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+} 
 
 .view-details:hover {
   background: linear-gradient(to right, var(--primary-dark), var(--primary-color));

@@ -98,9 +98,11 @@ const Home = () => {
               <p><strong>Author:</strong> {book.author}</p>
               <p><strong>Genre:</strong> {book.genre}</p>
               <p><strong>Year:</strong> {book.publicationYear}</p>
-              <Link to={`/book/${book._id}`} className="view-details">
-                View Details
-              </Link>
+              <div className="view-details-wrapper">
+                <Link to={`/book/${book._id}`} className="view-details">
+                  View Details
+                </Link>
+              </div>
             </div>
           ))
         ) : (
@@ -113,4 +115,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home; 

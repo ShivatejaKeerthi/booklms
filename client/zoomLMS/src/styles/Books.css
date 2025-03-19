@@ -1,9 +1,7 @@
-/* Books.css - Enhanced with modern design and full responsiveness */
 
-/* Custom font import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* CSS Reset & Base Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +15,7 @@ body {
   line-height: 1.6;
 }
 
-/* Main container styles - with smooth transitions */
+
 .books-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -739,4 +737,65 @@ input[type="checkbox"] {
   .view-details-btn.active:hover {
     background: linear-gradient(135deg, #c0392b, #a93226);
   }
+}
+
+.view-details-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.view-details-btn {
+  padding: 10px 18px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 3px 8px rgba(0, 119, 204, 0.2);
+}
+
+.view-details-btn:hover {
+  background: linear-gradient(to right, var(--primary-dark), var(--primary-color));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 119, 204, 0.3);
+}
+
+.view-details-btn.active {
+  background: linear-gradient(to right, #ff6b6b, var(--button-color));
+}
+
+.book-expanded-content {
+  margin-top: 15px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.book-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.book-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.metadata-label {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
