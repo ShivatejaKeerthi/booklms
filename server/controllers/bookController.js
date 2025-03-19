@@ -1,9 +1,9 @@
 import Book from '../models/Book.js';
 
-// Fetch all books
+
 const getBooks = async (req, res) => {
     try {
-        const books = await Book.find({}); // ✅ Fixed: Added 'await'
+        const books = await Book.find({});
         res.json(books);
     } catch (error) {
         console.error("Error fetching books:", error);
@@ -11,7 +11,7 @@ const getBooks = async (req, res) => {
     }
 };
 
-// Fetch a single book by ID
+
 const getBookById = async (req, res) => {
     try {
         const book = await Book.findById(req.params.id);
@@ -26,12 +26,11 @@ const getBookById = async (req, res) => {
     }
 };
 
-// Add a new book
+
 const addBook = async (req, res) => {
     try {
         const { title, author, genre, publicationYear, description } = req.body;
 
-        // Validate required fields
         if (!title || !author || !genre || !publicationYear || !description) {
             return res.status(400).json({ message: "All fields are required" });
         }
@@ -46,4 +45,21 @@ const addBook = async (req, res) => {
     }
 };
 
-export { getBooks, getBookById, addBook };
+
+const addMultipleBooks = async (req, res) => {
+    try {
+        const books = req.body; 
+
+        if (!Array.isArray(books) || books.length === 0) {
+            return res.status(400).json({ message: "Invalid book data. Provide an array of books." });
+        }
+
+        const insertedBooks = await Book.insertMany(books);
+        res.status(201).json({ message: "Books added successfully!", insertedBooks });
+    } catch (error) {
+        console.error("Error adding multiple books:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+};
+
+export { getBooks, getBookById, addBook, addMultipleBooks };
